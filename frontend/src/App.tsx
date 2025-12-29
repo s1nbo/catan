@@ -60,7 +60,7 @@ const PLAYER_COLORS: Record<string, string> = {
 };
 
 const EMOJI: Record<string, string> = {
-  wood: "🌲",
+  wood: "🪵",
   brick: "🧱",
   sheep: "🐑",
   wheat: "🌾",
@@ -873,7 +873,7 @@ export default function App() {
                 <div key={r} className="resource-card">
                   <div className="resource-left">
                     <span className="resource-emoji">
-                      {r === "wood" ? "🌲" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}
+                      {r === "wood" ? "🪵" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}
                     </span>
                     <span style={{ marginLeft: 8, textTransform: "capitalize" }}>{r}</span>
                   </div>
@@ -943,7 +943,7 @@ export default function App() {
                 <div key={r} className="resource-card">
                   <div className="resource-left">
                     <span className="resource-emoji">
-                      {r === "wood" ? "🌲" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}
+                      {r === "wood" ? "🪵" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}
                     </span>
                     <span style={{ marginLeft: 8, textTransform: "capitalize" }}>{r}</span>
                   </div>
@@ -1010,7 +1010,7 @@ export default function App() {
 
             <div style={{ display: "grid", gap: 8, marginTop: 12 }}>
               {([
-                ["wood", "🌲"],
+                ["wood", "🪵"],
                 ["brick", "🧱"],
                 ["sheep", "🐑"],
                 ["wheat", "🌾"],
@@ -1089,7 +1089,7 @@ export default function App() {
                 {(["wood", "brick", "sheep", "wheat", "ore"] as const).map((r) => (
                   <div key={`give-${r}`} className="resource-card">
                     <div className="resource-left">
-                      <span className="resource-emoji">{r === "wood" ? "🌲" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}</span>
+                      <span className="resource-emoji">{r === "wood" ? "🪵" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}</span>
                       <span style={{ marginLeft: 8, textTransform: "capitalize" }}>{r}</span>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -1108,7 +1108,7 @@ export default function App() {
                 {(["wood", "brick", "sheep", "wheat", "ore"] as const).map((r) => (
                   <div key={`recv-${r}`} className="resource-card">
                     <div className="resource-left">
-                      <span className="resource-emoji">{r === "wood" ? "🌲" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}</span>
+                      <span className="resource-emoji">{r === "wood" ? "🪵" : r === "brick" ? "🧱" : r === "sheep" ? "🐑" : r === "wheat" ? "🌾" : "⛰️"}</span>
                       <span style={{ marginLeft: 8, textTransform: "capitalize" }}>{r}</span>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -1480,7 +1480,7 @@ export default function App() {
         <div className="hud-card">
           <h3 className="hud-title">Your Hand</h3>
           <div className="resource-grid">
-            <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🌲</span></div><div className="count-pill">{self.resources.wood}</div></div>
+            <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🪵</span></div><div className="count-pill">{self.resources.wood}</div></div>
             <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🧱</span></div><div className="count-pill">{self.resources.brick}</div></div>
             <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🐑</span></div><div className="count-pill">{self.resources.sheep}</div></div>
             <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🌾</span></div><div className="count-pill">{self.resources.wheat}</div></div>
@@ -1568,7 +1568,7 @@ export default function App() {
         <div className="hud-card">
           <h3 className="hud-title">Bank</h3>
           <div className="resource-grid">
-            <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🌲</span></div><div className="count-pill">{bank.wood}</div></div>
+            <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🪵</span></div><div className="count-pill">{bank.wood}</div></div>
             <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🧱</span></div><div className="count-pill">{bank.brick}</div></div>
             <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🐑</span></div><div className="count-pill">{bank.sheep}</div></div>
             <div className="resource-card"><div className="resource-left"><span className="resource-emoji">🌾</span></div><div className="count-pill">{bank.wheat}</div></div>
