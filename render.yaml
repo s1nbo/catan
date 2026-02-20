@@ -21,6 +21,6 @@ services:
     # Frontend needs these at build-time
     envVars:
       - key: VITE_API_URL
-        value: "https://catan-backend.onrender.com"
+        value: "https://catanai.onrender.com"
       - key: VITE_WS_URL_BASE
-        value: "wss://catan-backend.onrender.com"
+        value: "wss://catanai.onrender.com"

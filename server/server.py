@@ -23,7 +23,7 @@ class GameIdRequest(BaseModel):
 
 ALLOWED_ORIGINS = os.getenv(
     "ALLOWED_ORIGINS",
-    "https://catanai-frontend.onrender.com,http://127.0.0.1:5173,http://localhost:5173"
+    "https://siedler.onrender.com/,http://127.0.0.1:5173,http://localhost:5173"
 ).split(",")
 
 app.add_middleware(
