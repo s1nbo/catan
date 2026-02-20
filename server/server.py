@@ -101,10 +101,14 @@ async def start_game(req: GameIdRequest):
 
 @app.websocket("/ws/{game_id}/{player_id}")
 async def websocket_endpoint(ws: WebSocket, game_id: int, player_id: int):
-    origin = ws.headers.get("origin")
-    if origin not in ALLOWED_ORIGINS:
-        await ws.close(code=1008) 
-        return
+    # Only check origin if we are not allowing all (*)
+    if "*" not in ALLOWED_ORIGINS:
+        origin = ws.headers.get("origin")
+        if origin not in ALLOWED_ORIGINS:
+            # You might want to log this failure for debugging
+            print(f"WS blocked origin: {origin} (Allowed: {ALLOWED_ORIGINS})")
+            await ws.close(code=1008) 
+            return
     
     await ws.accept()
 
