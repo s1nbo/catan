@@ -10,7 +10,7 @@ services:
 
   # ——— Frontend (Vite static) ———
   - type: web
-    name: catan-frontend
+    name: siedler
     runtime: static
     # Build the frontend app
     buildCommand: "cd frontend && npm ci && npm run build"

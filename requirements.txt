@@ -1,7 +1,3 @@
 fastapi
 uvicorn[standard]
 pydantic
-numpy
-orjson
-torch
-torch_geometric
