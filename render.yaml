@@ -1,7 +1,8 @@
+# WRONG
 services:
   # ——— Backend (FastAPI) ———
   - type: web
-    name: catan-backend
+    name: catanai
     runtime: python
     region: frankfurt
     plan: starter

@@ -21,10 +21,7 @@ class GameIdRequest(BaseModel):
     game_id: int
 
 
-ALLOWED_ORIGINS = os.getenv(
-    "ALLOWED_ORIGINS",
-    "https://siedler.onrender.com/,http://127.0.0.1:5173,http://localhost:5173"
-).split(",")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 
 app.add_middleware(
     CORSMiddleware,
