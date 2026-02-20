@@ -718,52 +718,53 @@ export default function App() {
             <button onClick={createLobby} className="btn primary" style={{ padding: 12, borderRadius: 10 }}>
               <UserPlus size={18} /> Create new Lobby
             </button>
+          </div>
 
-            <div style={{ display: "flex", gap: 8 }}>
-              <input
-                value={joinCode}
-                onChange={(e) => setJoinCode(e.target.value)}
-                placeholder="Enter lobby code"
-                className="input"
-                style={{ flex: 1, padding: 10, borderRadius: 10, border: "1px solid #e2e8f0" }}
-              />
-              <button onClick={joinLobby} className="btn" style={{ padding: "10px 14px", borderRadius: 10 }}>
-                Join
+          <div style={{ display: "flex", gap: 8 }}>
+            <input
+              value={joinCode}
+              onChange={(e) => setJoinCode(e.target.value)}
+              placeholder="Enter lobby code"
+              className="input"
+              style={{ flex: 1, padding: 10, borderRadius: 10, border: "1px solid #e2e8f0" }}
+            />
+            <button onClick={joinLobby} className="btn" style={{ padding: "10px 14px", borderRadius: 10 }}>
+              Join
+            </button>
+          </div>
+
+          <div style={{ display: "grid", gap: 8, marginTop: 6, background: "grey", padding: 12, borderRadius: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Users size={18} /> <strong>Players connected:</strong> {count}/4
+            </div>
+
+            <div style={{ display: "grid", gap: 12 }}>
+              <button onClick={startGame} className="btn primary" style={{ padding: 12, borderRadius: 10 }}>
+                <Play size={16} /> Start Game
               </button>
             </div>
 
-            <div style={{ display: "grid", gap: 8, marginTop: 6, background: "grey", padding: 12, borderRadius: 12 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <Users size={18} /> <strong>Players connected:</strong> {count}/4
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 6 }}>
-                <button onClick={startGame} disabled={(count < 2) || !gameId} className="btn success" style={{ padding: 10, borderRadius: 10 }}>
-                  <Play size={16} /> Start Game
-                </button>
+            <div style={{ display: "grid", gap: 4, marginTop: 4, fontSize: 14 }}>
+              <div>
+                <strong>Lobby code:</strong>{" "}
+                {gameId !== undefined && gameId !== null && String(gameId).trim() !== "" ? (
+                  <span style={{ fontWeight: 800, fontSize: 20, letterSpacing: 0.5 }}>
+                    {String(gameId)}
+                  </span>
+                ) : (
+                  <span>--</span>
+                )}
               </div>
 
-              <div style={{ display: "grid", gap: 4, marginTop: 4, fontSize: 14 }}>
-                <div>
-                  <strong>Lobby code:</strong>{" "}
-                  {gameId !== undefined && gameId !== null && String(gameId).trim() !== "" ? (
-                    <span style={{ fontWeight: 800, fontSize: 20, letterSpacing: 0.5 }}>
-                      {String(gameId)}
-                    </span>
-                  ) : (
-                    <span>--</span>
-                  )}
-                </div>
-
-                <div>
-                  <strong>You are:</strong>{" "}
-                  {playerId !== undefined && playerId !== null && String(playerId).trim() !== "" ? (
-                    <span style={{ fontWeight: 700, fontSize: 18 }}>
-                      {`Player ${playerId}`}
-                    </span>
-                  ) : (
-                    <span>--</span>
-                  )}
-                </div>
+              <div>
+                <strong>You are:</strong>{" "}
+                {playerId !== undefined && playerId !== null && String(playerId).trim() !== "" ? (
+                  <span style={{ fontWeight: 700, fontSize: 18 }}>
+                    {`Player ${playerId}`}
+                  </span>
+                ) : (
+                  <span>--</span>
+                )}
               </div>
             </div>
           </div>
@@ -1456,7 +1457,7 @@ export default function App() {
           )}
         </div>
 
-         {/* Resources (your hand) */}
+        {/* Resources (your hand) */}
         <div className="hud-card">
           <h3 className="hud-title">Your Hand</h3>
           <div className="resource-grid">
