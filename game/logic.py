@@ -34,6 +34,8 @@ class Game:
         self.pending_trade: dict | None = None
         self.no_partner: dict[int, dict] = {}
 
+        # Game Log TODO this will be implemented later
+        self.game_log: list[dict] = []
 
     def add_player(self, player_id):
         if player_id not in self.players:
@@ -194,7 +196,7 @@ class Game:
                     return False
             
             case "discard_resources":
-                 # Only valid during forced Discard phase and only for players who still owe
+                # Only valid during forced Discard phase and only for players who still owe
                 if self.forced_action != "Discard" or player_id not in self.pending_discard or self.pending_discard[player_id] <= 0:
                     return False
                 owed = self.pending_discard.get(player_id, 0)
@@ -527,7 +529,7 @@ class Game:
 
         result = {}
         for player in self.players.keys():
-            player_data = {player: json.dumps(self.players[player])}
+            player_data = {player: self.players[player]}
             public_player_data = self.public_player_state(player)
             players = {**player_data, **public_player_data}
             must_discard = self.pending_discard.get(player, 0) if self.forced_action == "Discard" else 0

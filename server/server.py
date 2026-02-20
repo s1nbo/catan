@@ -10,6 +10,7 @@ import os
 from game.logic import Game
 from game.action import *
 
+import json
 
 app = FastAPI()
 
@@ -68,17 +69,6 @@ async def join_game(req: GameIdRequest):
     return {"player_id": player_id, "game_id": game_id}
 
 
-
-@app.post("/game/{game_id}/add_bot")
-def add_bot(game_id: str):
-    pass # TODO
-
-
-@app.post("/game/{game_id}/remove_bot")
-def remove_bot(game_id: int):
-    pass # TODO
-
-
 @app.post("/game/{game_id}/start")
 async def start_game(req: GameIdRequest):
     game_id = req.game_id
@@ -100,7 +90,7 @@ async def start_game(req: GameIdRequest):
         if conn:
             await conn.send_json({"game_state": "True"})
     
-    # star game
+    # start game
     start_state = GAMES[game_id]['game_instance'].start_game()
 
     # send initial game state to all players
@@ -138,6 +128,8 @@ async def websocket_endpoint(ws: WebSocket, game_id: int, player_id: int):
             await asyncio.sleep(2)
     
         game_instance = GAMES[game_id]["game_instance"]
+        json.dump(game_instance.get_multiplayer_game_state()[player_id], open("player_state.json", "w"), indent=4)
+
         await ws.send_json(game_instance.get_multiplayer_game_state()[player_id])
 
         # Main Game Loop

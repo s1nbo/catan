@@ -2,3 +2,4 @@ board.json
 test.py
 */__pycache__/
 .vscode/
+venv/

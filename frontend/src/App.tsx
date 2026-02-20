@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Trophy, Swords, Route, Hand, Layers,
-  Bot, UserPlus, UserMinus, Play, KeyRound, Users
+  UserPlus, Play, KeyRound, Users
 } from "lucide-react";
 import HexBoard from "./Board";
 import type { BoardOverlay } from "./Board";
@@ -687,18 +687,6 @@ export default function App() {
     }
   }
 
-  async function addBot() {
-    if (!gameId) return;
-    const res = await fetch(`${API_URL}/game/${gameId}/add_bot`, { method: "POST" });
-    if (!res.ok) alert("add_bot not implemented on server yet.");
-  }
-
-  async function removeBot() {
-    if (!gameId) return;
-    const res = await fetch(`${API_URL}/game/${gameId}/remove_bot`, { method: "POST" });
-    if (!res.ok) alert("remove_bot not implemented on server yet.");
-  }
-
   /** ----- Dev helper: manual snapshot injection that also updates self ----- */
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -752,14 +740,6 @@ export default function App() {
                 <button onClick={startGame} disabled={(count < 2) || !gameId} className="btn success" style={{ padding: 10, borderRadius: 10 }}>
                   <Play size={16} /> Start Game
                 </button>
-                <div style={{ display: "flex", gap: 8 }}>
-                  <button onClick={addBot} disabled={!gameId} className="btn" title="Add bot" style={{ padding: 10, borderRadius: 10 }}>
-                    <Bot size={16} /> Add Bot
-                  </button>
-                  <button onClick={removeBot} disabled={!gameId} className="btn" title="Remove bot" style={{ padding: 10, borderRadius: 10 }}>
-                    <UserMinus size={16} /> Remove Bot
-                  </button>
-                </div>
               </div>
 
               <div style={{ display: "grid", gap: 4, marginTop: 4, fontSize: 14 }}>
