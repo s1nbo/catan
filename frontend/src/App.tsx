@@ -709,13 +709,13 @@ export default function App() {
     const count = observedPlayers.size;
     return (
       <div className="lobby-wrap" style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "linear-gradient(180deg,#0f172a,#1e293b)" }}>
-        <div className="lobby-card" style={{ width: 520, background: "grey", borderRadius: 16, padding: 20, boxShadow: "0 10px 30px rgba(0,0,0,.25)" }}>
+        <div className="lobby-card" style={{ width: 520, background: "grey", borderRadius: 16, padding: "12px 20px 20px", boxShadow: "0 10px 30px rgba(0,0,0,.25)" }}>
           <div style={{ display: "flex", alignItems: "center"}}>
-            <h2>Catan</h2>
+            <h2 style={{ margin: "4px 0 12px" }}>Catan</h2>
           </div>
 
           <div style={{ display: "grid", gap: 12 }}>
-            <button onClick={createLobby} className="btn primary" style={{ padding: 12, borderRadius: 10, width: "100%" }}>
+            <button onClick={createLobby} className="btn primary" style={{ padding: 12, borderRadius: 16, width: "100%" }}>
               <UserPlus size={18} /> Create new Lobby
             </button>
             <div style={{ display: "flex", gap: 8 }}>
@@ -724,9 +724,9 @@ export default function App() {
                 onChange={(e) => setJoinCode(e.target.value)}
                 placeholder="Enter lobby code"
                 className="input"
-                style={{ flex: 1, padding: 10, borderRadius: 10, border: "1px solid #e2e8f0" }}
+                style={{ flex: 1, padding: 10, borderRadius: 16, border: "1px solid #e2e8f0" }}
               />
-              <button onClick={joinLobby} className="btn" style={{ padding: "10px 14px", borderRadius: 10 }}>
+              <button onClick={joinLobby} className="btn" style={{ padding: "10px 14px", borderRadius: 16 }}>
                 Join
               </button>
             </div>
@@ -738,7 +738,7 @@ export default function App() {
             </div>
 
             <div style={{ display: "grid", gap: 12 }}>
-              <button onClick={startGame} className="btn primary" style={{ padding: 12, borderRadius: 10 }}>
+              <button onClick={startGame} className="btn primary" style={{ padding: 12, borderRadius: 16 }}>
                 Start Game
               </button>
             </div>
