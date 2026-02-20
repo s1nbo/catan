@@ -69,22 +69,6 @@ async def join_game(req: GameIdRequest):
     return {"player_id": player_id, "game_id": game_id}
 
 
-
-@app.post("/game/{game_id}/add_bot")
-def add_bot(game_id: str):
-    pass # TODO
-
-
-@app.post("/game/{game_id}/remove_bot")
-def remove_bot(game_id: int):
-    pass # TODO
-
-# spectate game with 4 bots
-@app.post("/spectate")
-def spectate_game():
-    pass # TODO
-
-
 @app.post("/game/{game_id}/start")
 async def start_game(req: GameIdRequest):
     game_id = req.game_id
@@ -106,7 +90,7 @@ async def start_game(req: GameIdRequest):
         if conn:
             await conn.send_json({"game_state": "True"})
     
-    # star game
+    # start game
     start_state = GAMES[game_id]['game_instance'].start_game()
 
     # send initial game state to all players
