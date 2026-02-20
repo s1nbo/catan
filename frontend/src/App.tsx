@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Trophy, Swords, Route, Hand, Layers,
-  UserPlus, Play, KeyRound, Users
+  UserPlus, Users
 } from "lucide-react";
 import HexBoard from "./Board";
 import type { BoardOverlay } from "./Board";
@@ -710,37 +710,36 @@ export default function App() {
     return (
       <div className="lobby-wrap" style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "linear-gradient(180deg,#0f172a,#1e293b)" }}>
         <div className="lobby-card" style={{ width: 520, background: "grey", borderRadius: 16, padding: 20, boxShadow: "0 10px 30px rgba(0,0,0,.25)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-            <KeyRound /> <h2 style={{ margin: 0 }}>Catan</h2>
+          <div style={{ display: "flex", alignItems: "center"}}>
+            <h2>Catan</h2>
           </div>
 
           <div style={{ display: "grid", gap: 12 }}>
-            <button onClick={createLobby} className="btn primary" style={{ padding: 12, borderRadius: 10 }}>
+            <button onClick={createLobby} className="btn primary" style={{ padding: 12, borderRadius: 10, width: "100%" }}>
               <UserPlus size={18} /> Create new Lobby
             </button>
+            <div style={{ display: "flex", gap: 8 }}>
+              <input
+                value={joinCode}
+                onChange={(e) => setJoinCode(e.target.value)}
+                placeholder="Enter lobby code"
+                className="input"
+                style={{ flex: 1, padding: 10, borderRadius: 10, border: "1px solid #e2e8f0" }}
+              />
+              <button onClick={joinLobby} className="btn" style={{ padding: "10px 14px", borderRadius: 10 }}>
+                Join
+              </button>
+            </div>
           </div>
 
-          <div style={{ display: "flex", gap: 8 }}>
-            <input
-              value={joinCode}
-              onChange={(e) => setJoinCode(e.target.value)}
-              placeholder="Enter lobby code"
-              className="input"
-              style={{ flex: 1, padding: 10, borderRadius: 10, border: "1px solid #e2e8f0" }}
-            />
-            <button onClick={joinLobby} className="btn" style={{ padding: "10px 14px", borderRadius: 10 }}>
-              Join
-            </button>
-          </div>
-
-          <div style={{ display: "grid", gap: 8, marginTop: 6, background: "grey", padding: 12, borderRadius: 12 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ display: "grid", gap: 12, marginTop: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "0 4px" }}>
               <Users size={18} /> <strong>Players connected:</strong> {count}/4
             </div>
 
             <div style={{ display: "grid", gap: 12 }}>
               <button onClick={startGame} className="btn primary" style={{ padding: 12, borderRadius: 10 }}>
-                <Play size={16} /> Start Game
+                Start Game
               </button>
             </div>
 
